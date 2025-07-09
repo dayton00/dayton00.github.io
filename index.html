@@ -3,53 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Mburu | Full-Stack Developer & DB Admin</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Joseph Mburu | Web and Software Developer's Portfolio and Data Analyst</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: bold;
+        }
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .table thead th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+        .skill-icon {
+            color: #007bff;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Joseph Mburu</h1>
-        <p>Web Developer | Database Administrator | System Integrator</p>
-    </header>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>✅ <strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+)</li>
-            <li>✅ <strong>Backend:</strong> PHP, MySQL, REST APIs</li>
-            <li>✅ <strong>CMS:</strong> WordPress, WooCommerce, Elementor</li>
-            <li>✅ <strong>Payments:</strong> M-Pesa, Bank APIs, Stripe</li>
-            <li>✅ <strong>Database:</strong> SQL Optimization, MongoDB</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>E-Commerce Store with M-Pesa</h3>
-            <p><strong>Tech:</strong> WordPress, WooCommerce, M-Pesa API</p>
-            <p>Integrated M-Pesa payments into a WooCommerce store, reducing checkout time by 40%.</p>
-            <a href="#" target="_blank">Live Demo</a> | <a href="#">GitHub</a>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Joseph Mburu</a>
+            <p class="text-white mb-0 ml-auto">Web & Software Developer | Database Administrator | System Integrator | Data Analyst</p>
         </div>
-        <div class="project">
-            <h3>School Management System</h3>
-            <p><strong>Tech:</strong> PHP, MySQL, JavaScript</p>
-            <p>Built a custom system for student records, fees (bank-integrated), and reporting.</p>
-            <a href="#" target="_blank">Live Demo</a> | <a href="#">GitHub</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Sidebar -->
+                <div class="card">
+                    <div class="card-header">
+                        Quick Links
+                    </div>
+                    <div class="card-body">
+                        <a href="#skills" class="btn btn-primary btn-block mb-2">Skills</a>
+                        <a href="#projects" class="btn btn-primary btn-block mb-2">Projects</a>
+                        <a href="#contact" class="btn btn-primary btn-block mb-2">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <!-- Skills Section -->
+                <div class="card" id="skills">
+                    <div class="card-header">
+                        <i class="fas fa-tools"></i> Skills
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Frontend</h3>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle skill-icon"></i> HTML5, CSS3, JavaScript (ES6+)</li>
+                                </ul>
+                                
+                                <h3>Backend</h3>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle skill-icon"></i> PHP, MySQL, REST APIs</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>CMS</h3>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle skill-icon"></i> WordPress, WooCommerce, Elementor</li>
+                                </ul>
+                                
+                                <h3>Payments</h3>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle skill-icon"></i> M-Pesa, Bank APIs, Stripe</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <h3>Database & Data</h3>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle skill-icon"></i> SQL Optimization, MongoDB</li>
+                                    <li><i class="fas fa-check-circle skill-icon"></i> Data Analysis & Reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="card" id="projects">
+                    <div class="card-header">
+                        <i class="fas fa-project-diagram"></i> Projects
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h3>E-Commerce Store with M-Pesa</h3>
+                                        <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> WordPress, WooCommerce, M-Pesa API</p>
+                                        <p>Integrated M-Pesa payments into a WooCommerce store, reducing checkout time by 40% and enhancing user experience for local customers.</p>
+                                        <div class="project-links">
+                                            <a href="#" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                            <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h3>School Management System</h3>
+                                        <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> PHP, MySQL, JavaScript</p>
+                                        <p>Developed a comprehensive custom system for student records, automated fee management (bank-integrated), and robust reporting functionalities.</p>
+                                        <div class="project-links">
+                                            <a href="#" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                            <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="card" id="contact">
+                    <div class="card-header">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </div>
+                    <div class="card-body">
+                        <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">📧 Email: <a href="mailto:solmarzo2024@gmail.com"><i class="fas fa-at"></i> john@example.com</a></li>
+                            <li class="mb-2">💼 LinkedIn: <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/johndoe</a></li>
+                            <li class="mb-2">🐱 GitHub: <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i> github.com/johndoe</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>📧 Email: <a href="mailto:john@example.com">john@example.com</a></p>
-        <p>💼 LinkedIn: <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a></p>
-        <p>🐱 GitHub: <a href="https://github.com/johndoe" target="_blank">github.com/johndoe</a></p>
-    </section>
-
-    <footer>
-        <p>© 2024 Joseph Mburu. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-4">
+        <div class="container py-3">
+            <p class="mb-0">&copy; 2024 Joseph Mburu. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
