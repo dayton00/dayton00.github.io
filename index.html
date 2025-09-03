@@ -197,7 +197,7 @@
             width: 100%;
         }
 
-        /* Gallery Carousel */
+       /* Gallery Carousel */
 .gallery-carousel {
     margin: 1.5rem 0;
     border-radius: 20px;
@@ -211,7 +211,7 @@
 }
 
 .carousel-item img {
-    object-fit: cover; /* This will make all images fill the carousel-item container */
+    object-fit: contain; /* Changed to 'contain' to show the full image */
     height: 100%;
     width: 100%;
     transition: transform 0.5s ease;
@@ -252,6 +252,7 @@
         height: 250px; /* Adjust the height for tablets and smaller devices */
     }
     /* ... other CSS rules ... */
+}
 }
         /* Project Cards */
         .project-card {
@@ -739,6 +740,7 @@
     </script>
 </body>
 </html>
+
 
 
 
