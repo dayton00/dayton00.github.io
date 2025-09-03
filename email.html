@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Design Pro Service</title>
+  <style>
+    /* Base Styles */
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: #e0e5ec;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #e0e5ec;
+      border-radius: 25px;
+      box-shadow: 10px 10px 30px #bec3c9, -10px -10px 30px #ffffff;
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(145deg, #d1d9e6, #ffffff);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: #e0e5ec;
+      border-radius: 50%;
+      box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+      margin: 0 auto 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #4a6baf;
+    }
+
+    .header h1 {
+      margin: 0;
+      color: #4a6baf;
+      font-size: 28px;
+    }
+
+    .header p {
+      color: #666;
+      margin: 0.5rem 0 0;
+    }
+
+    /* Content Styles */
+    .content {
+      padding: 2rem;
+    }
+
+    .card {
+      background: #e0e5ec;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: inset 5px 5px 10px #bec3c9, inset -5px -5px 10px #ffffff;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #4a6baf;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .service-card {
+      background: #e0e5ec;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 8px 8px 15px #bec3c9, -8px -8px 15px #ffffff;
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #e0e5ec;
+      margin: 0 auto 0.5rem;
+      box-shadow: inset 3px 3px 6px #bec3c9, inset -3px -3px 6px #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    .service-title {
+      font-weight: bold;
+      margin: 0.5rem 0;
+      font-size: 16px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 15px;
+      background: #e0e5ec;
+      box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      color: #4a6baf;
+      transition: all 0.3s ease;
+      margin: 0.5rem 0;
+    }
+
+    .btn:hover {
+      box-shadow: inset 2px 2px 5px #bec3c9, inset -2px -2px 5px #ffffff;
+      color: #3a5a9f;
+    }
+
+    .btn-primary {
+      background: linear-gradient(145deg, #4a6baf, #3a5a9f);
+      color: white;
+      box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(145deg, #3a5a9f, #2a4a8f);
+      box-shadow: inset 2px 2px 5px #2a4a8f, inset -2px -2px 5px #4a6baf;
+    }
+
+    .btn-large {
+      padding: 1rem 2rem;
+      font-size: 16px;
+    }
+
+    .btn-center {
+      display: block;
+      text-align: center;
+      margin: 1.5rem auto;
+      width: fit-content;
+    }
+
+    /* Feature List */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .feature {
+      flex: 1 1 45%;
+      background: #e0e5ec;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: inset 3px 3px 6px #bec3c9, inset -3px -3px 6px #ffffff;
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: #e0e5ec;
+      border-radius: 50%;
+      box-shadow: 3px 3px 6px #bec3c9, -3px -3px 6px #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* Testimonial */
+    .testimonial {
+      background: #e0e5ec;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+      font-style: italic;
+      position: relative;
+    }
+
+    .testimonial:before {
+      content: """;
+      font-size: 60px;
+      color: #4a6baf;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      opacity: 0.2;
+    }
+
+    .client {
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #4a6baf;
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(145deg, #d1d9e6, #ffffff);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: #e0e5ec;
+      border-radius: 50%;
+      box-shadow: 3px 3px 6px #bec3c9, -3px -3px 6px #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      box-shadow: inset 2px 2px 5px #bec3c9, inset -2px -2px 5px #ffffff;
+      transform: scale(0.95);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(74, 107, 175, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(74, 107, 175, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(74, 107, 175, 0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .feature {
+        flex: 1 1 100%;
+      }
+      
+      .content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <div class="logo floating">ED</div>
+      <h1>Email Design Pro</h1>
+      <p>Transform Your Email Marketing With Stunning Designs</p>
+    </div>
+
+    <div class="content">
+      <div class="card">
+        <h2>✨ Professional Email Design Services</h2>
+        <p>Stand out in crowded inboxes with beautifully designed emails that convert. Our expert designers create responsive, on-brand templates that work across all devices and email clients.</p>
+        
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <div class="service-title">Responsive Design</div>
+            <div class="service-desc">Perfect on all devices</div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <div class="service-title">Custom Templates</div>
+            <div class="service-desc">Tailored to your brand</div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">⚡</div>
+            <div class="service-title">Fast Turnaround</div>
+            <div class="service-desc">48-hour delivery</div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">📊</div>
+            <div class="service-title">Higher Conversion</div>
+            <div class="service-desc">Proven results</div>
+          </div>
+        </div>
+        
+        <a href="#" class="btn btn-primary btn-large btn-center pulse">GET A FREE QUOTE</a>
+      </div>
+      
+      <div class="card">
+        <h2>🌟 Why Choose Our Email Design Service?</h2>
+        <p>We combine aesthetic excellence with technical expertise to create emails that not only look great but perform exceptionally.</p>
+        
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">✔</div>
+            <div>100% Responsive Designs</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <div>Compatible with All Email Clients</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📈</div>
+            <div>Conversion-Focused Layouts</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <div>Strategic CTAs Placement</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        "Since using Email Design Pro, our open rates increased by 42% and click-through rates doubled. Their designs perfectly captured our brand voice while optimizing for engagement."
+        <div class="client">- Sarah Johnson, Marketing Director at TechCorp</div>
+      </div>
+      
+      <div class="card">
+        <h2>🎁 Limited Time Offer</h2>
+        <p>As a new client, we're offering 20% off your first email template design package. This exclusive offer expires in 7 days!</p>
+        <p>Use code <strong>EMAIL20</strong> when requesting your quote.</p>
+        <a href="#" class="btn btn-primary btn-center">Claim Your Discount Now</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Follow us for design tips and industry insights</p>
+      <div class="social-links">
+        <a href="#" class="social-link">f</a>
+        <a href="#" class="social-link">t</a>
+        <a href="#" class="social-link">in</a>
+        <a href="#" class="social-link">ig</a>
+      </div>
+      <p>© 2023 Email Design Pro. All rights reserved.</p>
+      <p><a href="#" style="color: #4a6baf; text-decoration: none;">Unsubscribe</a> | <a href="#" style="color: #4a6baf; text-decoration: none;">Privacy Policy</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Simple animation triggers for demonstration
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add hover effect to service cards
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+      
+      // Pulse animation for CTA button
+      const ctaButton = document.querySelector('.pulse');
+      setInterval(() => {
+        ctaButton.classList.toggle('pulse');
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
