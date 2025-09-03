@@ -198,54 +198,61 @@
         }
 
         /* Gallery Carousel */
-        .gallery-carousel {
-            margin: 1.5rem 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
-        }
+.gallery-carousel {
+    margin: 1.5rem 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
 
-        .carousel-item {
-            transition: transform 1s ease;
-        }
+.carousel-item {
+    transition: transform 1s ease;
+    height: 400px; /* Set a fixed height for a uniform gallery on desktop */
+}
 
-        .carousel-item img {
-            object-fit: contain;
-            height: 100%;
-            width: 100%;
-            padding: 1rem;
-            background: var(--bg-color);
-            transition: transform 0.5s ease;
-        }
+.carousel-item img {
+    object-fit: cover; /* This will make all images fill the carousel-item container */
+    height: 100%;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
 
-        .carousel-item:hover img {
-            transform: scale(1.03);
-        }
+.carousel-item:hover img {
+    transform: scale(1.03);
+}
 
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            padding: 10px 15px;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-        }
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 10px 15px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+}
 
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 50px;
-        }
-        
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            padding: 15px;
-            box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
-        }
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    /* ... other CSS rules ... */
+    .carousel-item {
+        height: 250px; /* Adjust the height for tablets and smaller devices */
+    }
+    /* ... other CSS rules ... */
+}
         /* Project Cards */
         .project-card {
             border-radius: 20px;
@@ -732,6 +739,7 @@
     </script>
 </body>
 </html>
+
 
 
 
