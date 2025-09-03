@@ -28,6 +28,7 @@
             color: var(--text-color);
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         .container {
@@ -38,28 +39,57 @@
             padding: 3rem 0;
         }
 
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
         /* Neumorphic Header */
         .header {
             background: var(--bg-color);
-            padding: 2rem 0;
+            padding: 3rem 0;
             margin-bottom: 2rem;
             text-align: center;
             box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light);
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-out;
         }
 
         .header h1 {
             color: var(--primary-color);
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-shadow: 2px 2px 3px var(--shadow-dark), -2px -2px 3px var(--shadow-light);
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typewriter 2s steps(20) 1s both;
         }
 
         .header p {
             color: var(--light-text-color);
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-top: 0.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s forwards;
         }
         
         /* Neumorphic Card */
@@ -71,7 +101,15 @@
             transition: all 0.3s ease;
             margin-bottom: 2rem;
             padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
+
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+        .card:nth-child(4) { animation-delay: 0.8s; }
 
         .card:hover {
             box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
@@ -107,7 +145,15 @@
             font-size: 1rem;
             color: var(--light-text-color);
             margin-bottom: 0.8rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
         }
+
+        .list-unstyled li:nth-child(1) { animation-delay: 0.3s; }
+        .list-unstyled li:nth-child(2) { animation-delay: 0.4s; }
+        .list-unstyled li:nth-child(3) { animation-delay: 0.5s; }
+        .list-unstyled li:nth-child(4) { animation-delay: 0.6s; }
+        .list-unstyled li:nth-child(5) { animation-delay: 0.7s; }
 
         .list-unstyled .skill-icon {
             color: var(--primary-color);
@@ -159,12 +205,21 @@
             box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
         }
 
+        .carousel-item {
+            transition: transform 1s ease;
+        }
+
         .carousel-item img {
             object-fit: contain;
             height: 100%;
             width: 100%;
             padding: 1rem;
             background: var(--bg-color);
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.03);
         }
 
         .carousel-caption {
@@ -199,7 +254,15 @@
             transition: all 0.3s ease;
             height: 100%;
             padding: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
+
+        .project-card:nth-child(1) { animation-delay: 0.3s; }
+        .project-card:nth-child(2) { animation-delay: 0.4s; }
+        .project-card:nth-child(3) { animation-delay: 0.5s; }
+        .project-card:nth-child(4) { animation-delay: 0.6s; }
 
         .project-card:hover {
             transform: translateY(-5px);
@@ -260,6 +323,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
         
         .whatsapp-float:hover {
@@ -268,6 +332,7 @@
             text-decoration: none;
             transform: scale(1.1);
             box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light);
+            animation: none;
         }
 
         /* Footer */
@@ -279,34 +344,106 @@
             color: var(--light-text-color);
         }
 
+        /* Progress bars for skills */
+        .skill-bar {
+            height: 8px;
+            background: var(--shadow-light);
+            border-radius: 10px;
+            margin: 10px 0 20px;
+            overflow: hidden;
+            box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
         /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .header h1 {
+                font-size: 2.3rem;
+            }
+            .header p {
+                font-size: 1.1rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .header {
+                padding: 2rem 0;
+            }
+            
             .header h1 {
                 font-size: 2rem;
+                animation: none;
+                white-space: normal;
             }
+            
             .header p {
                 font-size: 1rem;
             }
+            
             .card {
                 padding: 1.5rem;
+                margin-bottom: 1.5rem;
             }
+            
             .card-header h2 {
                 font-size: 1.5rem;
             }
+            
             .carousel-item {
                 height: 250px;
             }
+            
             .carousel-caption {
                 padding: 5px 10px;
                 font-size: 14px;
                 bottom: 10px;
             }
+            
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
                 bottom: 30px;
                 right: 30px;
+            }
+            
+            .section-padding {
+                padding: 2rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 0.95rem;
+            }
+            
+            .card {
+                padding: 1.2rem;
+            }
+            
+            .card-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-link {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -316,7 +453,7 @@
         <div class="container">
             <h1>Astro Developer</h1>
             <p>Web & Software Developer | Database Administrator | System Integrator | Data Analyst</p>
-            <p>Email designer | Marketer </p>
+            <p>Email Designer | Digital Marketer</p>
         </div>
     </header>
 
@@ -324,44 +461,49 @@
         <section class="section-padding" id="skills">
             <div class="card">
                 <div class="card-header">
-                    <h2><i class="fas fa-tools"></i> Skills</h2>
+                    <h2><i class="fas fa-tools"></i> Skills & Expertise</h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <h3>Frontend</h3>
+                            <h3>Frontend Development</h3>
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-check-circle skill-icon"></i> HTML5, CSS3, JavaScript (ES6+)</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Responsive Web Design</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Bootstrap, jQuery</li>
                             </ul>
-                            <h3>Backend</h3>
+                            
+                            <h3>Backend Development</h3>
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle skill-icon"></i> Python, PHP, MySQL, REST APIs</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Python, PHP, Node.js</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> MySQL, MongoDB, REST APIs</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> API Integration & Development</li>
                             </ul>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <h3>CMS & Payments</h3>
+                            <h3>CMS & E-commerce</h3>
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-check-circle skill-icon"></i> WordPress, WooCommerce, Elementor</li>
                                 <li><i class="fas fa-check-circle skill-icon"></i> M-Pesa, Bank APIs, Stripe, Paystack</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Plugin & Theme Development</li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <h3>Database & Data</h3>
+                            
+                            <h3>Database & Data Analysis</h3>
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle skill-icon"></i> SQL Optimization, MongoDB</li>
-                                <li><i class="fas fa-check-circle skill-icon"></i> Data Analysis & Reporting</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> SQL Optimization, Database Design</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Data Analysis & Visualization</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Reporting & Business Intelligence</li>
                             </ul>
                         </div>
                     </div>
                      <div class="row mt-3">
                         <div class="col-md-12">
-                            <h3>Email Design & Marketing</h3>
+                            <h3>Digital Marketing & SEO</h3>
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle skill-icon"></i> Email Designs</li>
-                                <li><i class="fas fa-check-circle skill-icon"></i> SEO</li>
-                                <li><i class="fas fa-check-circle skill-icon"></i> Google Analytics</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Email Design & Marketing Campaigns</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> SEO & SEM Strategies</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Google Analytics & Data Tracking</li>
+                                <li><i class="fas fa-check-circle skill-icon"></i> Google Ads & Social Media Marketing</li>
                             </ul>
                         </div>
                     </div>
@@ -428,7 +570,7 @@
         <section class="section-padding" id="projects">
             <div class="card">
                 <div class="card-header">
-                    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                    <h2><i class="fas fa-project-diagram"></i> Development Projects</h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -477,52 +619,51 @@
                 </div>
             </div>
         </section>
-         <section class="section-padding" id="projects">
+         
+        <section class="section-padding" id="marketing-projects">
             <div class="card">
                 <div class="card-header">
-                    <h2><i class="fas fa-project-diagram"></i>marketing Projects</h2>
+                    <h2><i class="fas fa-chart-line"></i> Marketing Projects</h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="card project-card">
-                                <h3>Email designs</h3>
-                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> Email design Templates</p>
-                                <p>Stunning, responsive email designs that boost engagement and conversions.</p>
+                                <h3>Email Design & Campaigns</h3>
+                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> HTML Email, Responsive Design, Marketing Automation</p>
+                                <p>Stunning, responsive email designs that boost engagement and conversions. Created templates for various industries with a focus on mobile optimization.</p>
                                 <div class="project-links">
-                                    <a href="email.html" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Live sample</a>
+                                    <a href="email.html" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> View Samples</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="card project-card">
-                                <h3>Google analytics</h3>
-                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong>G A4 Analytics</p>
-                                <p>Optimize, Track, Analyze, Convert, Insights, Data-Driven, Results, Grow, Measure, Succeed.</p>
+                                <h3>Google Analytics Implementation</h3>
+                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> GA4, Google Tag Manager, Data Studio</p>
+                                <p>Setup and configuration of Google Analytics for various clients, providing actionable insights through custom dashboards and reports.</p>
                                 <div class="project-links">
-                                    <a href="analytics.html" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> past statistics</a>
+                                    <a href="analytics.html" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> View Reports</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="card project-card">
-                                <h3>SEO</h3>
-                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> SEO, SEM & Keyword search</p>
-                                <p>Expert SEO to rank higher on Google.</p>
+                                <h3>SEO Optimization</h3>
+                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> SEO, SEM, Keyword Research, Technical SEO</p>
+                                <p>Comprehensive SEO strategies that improve search engine rankings and drive organic traffic. Technical SEO audits, on-page optimization, and content strategy development.</p>
                                 <div class="project-links">
-                                   
-                                 <p>    Expert SEO to rank higher on Google, Turn searches into customers with my SEO.</p>
-                                    
+                                    <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Request Case Study</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="card project-card">
-                                <h3>Google Ads</h3>
-                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> WordPress, PHP, MySQL, JavaScript</p>
-                                <p>A plugin that calculates travel costs using the Google Maps API, featuring an autocomplete function for easy input.</p>
+                                <h3>Google Ads Campaigns</h3>
+                                <p class="tech-stack"><i class="fas fa-laptop-code"></i> <strong>Tech:</strong> Google Ads, Conversion Tracking, A/B Testing</p>
+                                <p>Managed successful Google Ads campaigns with optimized ROI. Created targeted ad copies, managed budgets, and implemented conversion tracking.</p>
                                 <div class="project-links">
-                                    <a href="https://github.com/dayton00/traveling-track-cost-plugin" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
+                                    <a href="#contact" class="btn btn-primary"><i class="fas fa-chart-bar"></i> See Results</a>
                                 </div>
                             </div>
                         </div>
@@ -530,7 +671,6 @@
                 </div>
             </div>
         </section>
-
 
         <section class="section-padding" id="contact">
             <div class="card">
@@ -541,8 +681,9 @@
                     <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
                     <div class="d-flex flex-wrap justify-content-start">
                         <a href="mailto:solmarzo2024@gmail.com" class="contact-link mr-2 mb-2"><i class="fas fa-at"></i> solmarzo2024@gmail.com</a>
-                        <a href="https://linkedin.com/in/johndoe" target="_blank" class="contact-link mr-2 mb-2"><i class="fab fa-linkedin"></i> linkedin.com/in/johndoe</a>
-                        <a href="https://github.com/dayton00" target="_blank" class="contact-link mr-2 mb-2"><i class="fab fa-github"></i> github.com</a>
+                        <a href="https://linkedin.com/in/johndoe" target="_blank" class="contact-link mr-2 mb-2"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+                        <a href="https://github.com/dayton00" target="_blank" class="contact-link mr-2 mb-2"><i class="fab fa-github"></i> GitHub Portfolio</a>
+                        <a href="tel:+254702185047" class="contact-link mr-2 mb-2"><i class="fas fa-phone"></i> +254 702 185 047</a>
                     </div>
                 </div>
             </div>
@@ -569,9 +710,25 @@
                 interval: 3000,
                 pause: "hover"
             });
+            
+            // Animate skill bars on scroll
+            $(window).scroll(function() {
+                $('.skill-progress').each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    if (scroll > position - windowHeight + 100) {
+                        $(this).css('width', $(this).data('width'));
+                    }
+                });
+            });
+            
+            // Initialize skill bars
+            $('.skill-progress').each(function() {
+                $(this).data('width', $(this).css('width'));
+                $(this).css('width', '0');
+            });
         });
     </script>
 </body>
 </html>
-
-
